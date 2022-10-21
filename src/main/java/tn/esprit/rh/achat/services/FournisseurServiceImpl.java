@@ -1,8 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import tn.esprit.rh.achat.entities.DetailFournisseur;
 import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.entities.SecteurActivite;
@@ -37,6 +34,7 @@ public class FournisseurServiceImpl implements IFournisseurService {
 	}
 
 
+	@Override
 	public Fournisseur addFournisseur(Fournisseur f /*Master*/) {
 		DetailFournisseur df= new DetailFournisseur();//Slave
 		df.setDateDebutCollaboration(new Date()); //util
@@ -52,6 +50,7 @@ public class FournisseurServiceImpl implements IFournisseurService {
 		return df;
 	}
 
+	@Override
 	public Fournisseur updateFournisseur(Fournisseur f) {
 		DetailFournisseur df = saveDetailFournisseur(f);
 		f.setDetailFournisseur(df);	
